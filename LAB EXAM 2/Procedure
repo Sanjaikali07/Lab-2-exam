@@ -1,0 +1,74 @@
+Title:  Computer Networks Lab Exam on Configuring RIP and OSPF Protocols
+
+Student Name: Sanjai. K
+Roll Number: RA2211030050007  
+Date: 21.10.2024  
+
+Objective:
+The objective of this lab is to design a network topology using RIP and OSPF protocols in Cisco Packet Tracer to enable communication between two LANs connected 
+via a WAN link. Each LAN has uniquely assigned IP addresses incorporating the last three digits of the student’s roll number, ensuring customized configuration.
+
+Network Design Procedure:
+
+1. Device Placement
+- Open Cisco Packet Tracer and place 10 computers in the workspace, separating them into two groups to represent two LANs.
+   - Add a switch for each LAN, naming them as follows:
+     - Switch_LAN1 for the first LAN.
+     - Switch_LAN2 for the second LAN.
+   - Add two routers:
+     - Router_RIP to handle RIP protocol.
+     - Router_OSPF to handle OSPF protocol.
+   - Establish a connection between Router_RIP and Router_OSPF using a serial cable, creating a WAN link for inter-router communication.
+
+2. Device Naming Convention
+   - Name each computer in LAN 1 following the format `PC_001`, `PC_002`, etc., where the last three digits represent the last digits of the roll number.
+   - Similarly, name each computer in LAN 2 as `PC_101`, `PC_102`, etc.
+
+IP Address Configuration:
+
+1. Subnet Design:
+   - Assign LAN 1 to the subnet `192.168.1.0/24` and LAN 2 to the subnet `192.168.2.0/24`.
+
+2. IP Assignment:
+   - Each computer in LAN 1 should receive an IP address in the `192.168.1.x` range, with `x` being the last three digits of the roll number.
+     - For example, if the roll number ends in 001, assign `192.168.1.001` to the first computer, `192.168.1.002` to the second, and so on.
+   - Similarly, assign each computer in **LAN 2** an IP address in the `192.168.2.x` range, following the same rule.
+   - Configure the LAN interfaces on each router with appropriate IP addresses for their respective LAN subnets:
+     - Assign an IP address (e.g., `192.168.1.254`) for Router_RIP’s LAN interface.
+     - Assign an IP address (e.g., `192.168.2.254`) for Router_OSPF’s LAN interface.
+   - For the serial WAN connection, assign IP addresses to the serial interfaces of Router_RIP and Router_OSPF (e.g., `10.0.0.1` and `10.0.0.2` respectively).
+
+Routing Protocol Configuration:
+
+1. Configuring RIP on Router_RIP
+   - Access Router_RIP and enable the RIP routing protocol.
+   - Specify the subnet for LAN 1 (`192.168.1.0/24`) so it is recognized by RIP.
+   - Include the WAN subnet (e.g., `10.0.0.0`) to allow communication across the WAN link.
+
+2. Configuring OSPF on Router_OSPF
+   - Access Router_OSPF and enable the OSPF routing protocol.
+   - Specify the subnet for LAN 2 (`192.168.2.0/24`) so it is recognized by OSPF.
+   - Add the WAN subnet (e.g., `10.0.0.0`) to facilitate communication across the WAN link.
+
+Testing Procedure:
+
+1. Verify Connections
+   - Test connectivity within each LAN by sending ping requests between computers to ensure each device within the same LAN can communicate.
+   - Check the connection between Router_RIP and Router_OSPF over the WAN link by verifying that the routers can successfully ping each other using their serial 
+interface IPs.
+
+2. Simulation Mode Testing
+   - Enable Simulation Mode in Cisco Packet Tracer.
+   - Select a computer in LAN 1 (e.g., `PC_001`) and send a test ping to a computer in LAN 2 (e.g., `PC_101`).
+   - Observe the packet transmission path in simulation mode to ensure it travels through Router_RIP across the WAN link to Router_OSPF, ultimately reaching the 
+target computer in LAN 2.
+
+3. Result Verification
+   - Confirm that the ping request and reply are successful, indicating complete connectivity between LANs.
+   - Document any connectivity issues and the steps taken to resolve them.
+
+Conclusion:
+
+This configuration successfully establishes inter-LAN communication using RIP and OSPF routing protocols in a Cisco Packet Tracer simulation. With the routers 
+configured to handle their respective LANs and the WAN link enabling routing between them, data transmission was verified across the networks. This lab exercise 
+provided a practical understanding of setting up and testing routing protocols within a network topology.
